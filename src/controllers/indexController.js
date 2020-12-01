@@ -14,6 +14,35 @@ module.exports = {
         return res.render("detail", { ...req.query });
     },
     buy: (req,res)=>{
+        /*se el objeto/s de venta */
+        let item = {
+            id: 1,
+            title: '',
+            picture_url:'',
+            title: '',
+            price:'',
+            description:'',
+            unit_price:'',
+            quantity:''
+        }
+        let preference = {
+            /*array de productos o servicios que se va a vender */
+            items:[
+                item
+            ],
+
+        }
+
+        /* crear la preferencia */
+        mercadopago.preferences.create(preference)
+        .then(response=>{
+
+        })
+        .catch(error=>{
+            console.log(error);
+            res.send('error')
+        })
+
         res.send('ok')
     }
 }
