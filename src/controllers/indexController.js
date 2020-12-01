@@ -27,6 +27,30 @@ module.exports = {
             items:[
                 item
             ],
+            payment_methods:{
+                excluded_payment_types:[
+                    {id:'atm'}
+                ],
+                installments: 12,
+                excluded_payment_methods:[
+                    {id:'visa'}
+                ]
+            },
+            payer:{
+                name:'Ryan',
+                surname: 'Dahl',
+                email:'test_user_63274575@testuser.com',
+                phone:{
+                    area_code:'11',
+                    number:55556666
+                },
+                addres:{
+                    zip_code:'1234',
+                    street_name:'Monroe',
+                    street_number: 860
+                }
+            },
+            external_reference:'ale.gb32@gmail.com'
 
         }
 
