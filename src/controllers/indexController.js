@@ -17,7 +17,7 @@ module.exports = {
         /*se el objeto/s de venta */
         let item = {
             id: 1,
-            title: 'Nombre',
+            title: 'Zapa',
             description:'Descripcion',
             unit_price:10.5,
             quantity:1
@@ -33,6 +33,7 @@ module.exports = {
         /* crear la preferencia */
         mercadopago.preferences.create(preference)
         .then(response=>{
+            global.init_point = response.body.init_point;
             global.id = response.body.id;
             res.render('confirm')
         })
