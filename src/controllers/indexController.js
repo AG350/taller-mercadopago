@@ -17,13 +17,10 @@ module.exports = {
         /*se el objeto/s de venta */
         let item = {
             id: 1,
-            title: '',
-            picture_url:'',
-            title: '',
-            price:'',
-            description:'',
-            unit_price:'',
-            quantity:''
+            title: 'Nombre',
+            description:'Descripcion',
+            unit_price:10.5,
+            quantity:1
         }
         let preference = {
             /*array de productos o servicios que se va a vender */
@@ -36,13 +33,12 @@ module.exports = {
         /* crear la preferencia */
         mercadopago.preferences.create(preference)
         .then(response=>{
-
+            global.id = response.body.id;
+            res.render('confirm')
         })
         .catch(error=>{
             console.log(error);
             res.send('error')
         })
-
-        res.send('ok')
     }
 }
