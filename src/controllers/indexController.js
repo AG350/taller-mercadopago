@@ -13,15 +13,34 @@ module.exports = {
     detail: (req, res) => {
         return res.render("detail", { ...req.query });
     },
+    callback:(req ,res)=>{
+        console.log(req.query)
+
+        if(req.query.status.includes('success')){
+            return res.render('success')
+        };
+        if(req.query.status.includes('pending')){
+            return res.render('pending')
+        };
+        if(req.query.status.includes('failure')){
+            return res.render('failure')
+        };
+        
+        return res.send().status(404).end()
+        
+
+    },
     buy: (req,res)=>{
         /*se el objeto/s de venta */
         let item = {
-            id: 1,
+            id: 1234,
             title: 'Zapa',
-            description:'Descripcion',
+            description:'Dispositivo móvil de Tienda e-commerce',
             unit_price:10.5,
             quantity:1
         }
+        const host = 'https://mercadopago-app.herokuapp.com/';
+        const url = host+'callback?status=';
         let preference = {
             /*array de productos o servicios que se va a vender */
             items:[
@@ -50,7 +69,14 @@ module.exports = {
                     street_number: 860
                 }
             },
-            external_reference:'ale.gb32@gmail.com'
+            external_reference:'ale.gb32@gmail.com',
+            back_urls:{
+                success:url+'success',
+                pendding:url+'pendding',
+                failure:url+'failure'
+            },
+            auto_return:'approved',
+            notification_url:host+'notifications'
 
         }
 
@@ -65,5 +91,11 @@ module.exports = {
             console.log(error);
             res.send('error')
         })
+    },
+
+    notifications:(req,res)=>{
+        console.log(req.body);
+
+        res.status(200).end('Ok')
     }
 }

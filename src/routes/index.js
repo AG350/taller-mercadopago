@@ -10,6 +10,12 @@ router.get('/', indexController.home);
 router.get('/detail', indexController.detail);
 
 /* post comprar */
+router.get('/callback', indexController.callback)
+
+/* post comprar */
+router.post('/notifications', indexController.notifications)
+
+/* post comprar */
 router.post('/buy', indexController.buy)
 
 module.exports = router;
