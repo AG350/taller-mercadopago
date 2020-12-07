@@ -38,9 +38,10 @@ module.exports = {
         /*se el objeto/s de venta */
         let item = {
             id: 1234,
-            title: 'Zapa',
+            title: 'Nike Jordan',
             description:'Dispositivo móvil de Tienda e-commerce',
-            unit_price:10.5,
+            picture_url:'https://mercadopago-app.herokuapp.com/images/products/jordan.jpg',
+            unit_price: Number(16500),
             quantity:1
         }
         const host = 'https://mercadopago-app.herokuapp.com/';
@@ -54,29 +55,29 @@ module.exports = {
                 excluded_payment_types:[
                     {id:'atm'}
                 ],
-                installments: 12,
+                installments: 6,
                 excluded_payment_methods:[
-                    {id:'visa'}
+                    {id:'amex'}
                 ]
             },
             payer:{
-                name:'Ryan',
-                surname: 'Dahl',
+                name:'Lalo',
+                surname: 'Landa',
                 email:'test_user_63274575@testuser.com',
                 phone:{
                     area_code:'11',
-                    number:55556666
+                    number:22223333
                 },
                 addres:{
-                    zip_code:'1234',
-                    street_name:'Monroe',
-                    street_number: 860
+                    zip_code:'1111',
+                    street_name:'False',
+                    street_number: 123
                 }
             },
             external_reference:'ale.gb32@gmail.com',
             back_urls:{
                 success:url+'success',
-                pendding:url+'pendding',
+                pendding:url+'pending',
                 failure:url+'failure'
             },
             auto_return:'approved',
