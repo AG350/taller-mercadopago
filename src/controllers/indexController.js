@@ -57,31 +57,31 @@ module.exports = {
                 ],
                 installments: 6,
                 excluded_payment_methods:[
-                    {id:'amex'}
+                    {id: 'amex'}
                 ]
             },
             payer:{
-                name:'Lalo',
+                name: 'Lalo',
                 surname: 'Landa',
-                email:'test_user_63274575@testuser.com',
+                email: 'test_user_63274575@testuser.com',
                 phone:{
-                    area_code:'11',
-                    number:22223333
+                    area_code: '11',
+                    number: 22223333
                 },
-                addres:{
-                    zip_code:'1111',
-                    street_name:'False',
+                address:{
+                    zip_code: '1111',
+                    street_name: 'False',
                     street_number: 123
                 }
             },
-            external_reference:'ale.gb32@gmail.com',
-            back_urls:{
-                success:url+'success',
-                pendding:url+'pending',
-                failure:url+'failure'
+            external_reference: 'ale.gb32@gmail.com',
+            back_urls: {
+                success: url+'success',
+                pending: url+'pending',
+                failure: url+'failure'
             },
-            auto_return:'approved',
-            notification_url:host+'notifications'
+            auto_return: 'approved',
+            notification_url: host+'notifications'
 
         }
 
